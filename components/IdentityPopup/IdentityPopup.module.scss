@@ -1,0 +1,19 @@
+@use "../../styles/abstracts" as *;
+
+.identity_test {
+	background: white;
+	padding: 1.5vmax 2vmax 3vmax;
+	outline: 2px solid $grey-2;
+	border-radius: 1px;
+	text-align: center;
+}
+
+.heading {
+	font-size: 3vmax;
+	
+}
+
+.explanation {
+	margin-top: 0.6vmax;
+	font-size: 1.15vmax;
+}

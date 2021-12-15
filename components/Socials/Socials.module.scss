@@ -1,0 +1,19 @@
+.socials {
+	width: 100%;
+
+	&__list {
+		width: 70%;
+		margin: auto;
+		display: flex;
+		justify-content: space-around;
+		align-items: stretch;
+	}
+
+	&__item {
+		width: 13.5%;
+
+		img {
+			width: 100%;
+		}
+	}
+}
