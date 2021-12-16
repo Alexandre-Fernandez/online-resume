@@ -1,10 +1,11 @@
 @use "../../styles/abstracts" as *;
 
 .sidebar {
-	position: relative;
-	width: var(--sidebar-width);
+	height: 100vh; // temporary
+	max-width: var(--sidebar-width);
+	min-width: var(--sidebar-width);
 	padding: var(--content-padding);
+	color: $white-1;
 	background: $dark-blue-1;
-	height: 100vh;
 }
 

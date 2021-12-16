@@ -1,0 +1,21 @@
+@use "../../styles/abstracts" as *;
+
+.skill_tag {
+	--btn-side-padding: 0.15vw;
+	border: none;
+	background: none;
+	color: $grey-2;
+	padding: var(--btn-side-padding);
+	border-radius: calc(var(--btn-side-padding) * 1.5);
+	margin: var(--btn-side-padding) var(--btn-side-padding) 0 var(--btn-side-padding);
+
+	&:hover {
+		background: $grey-1;
+	}
+
+	&.active {
+		background: $dark-blue-1;
+		color: $white-1;
+		
+	}
+}

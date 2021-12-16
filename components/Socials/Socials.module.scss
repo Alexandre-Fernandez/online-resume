@@ -13,7 +13,19 @@
 		width: 13.5%;
 
 		img {
+			max-height: 70%;
 			width: 100%;
+
+			&:hover {
+				//filter: brightness(0) invert(8%) sepia(46%) saturate(812%) hue-rotate(182deg) brightness(96%) contrast(95%);
+				filter: brightness(0) invert(66%) sepia(7%) saturate(496%) hue-rotate(169deg) brightness(91%) contrast(86%);
+			}
 		}
+	}
+
+	&__link {
+		height: 100%;
+		display: flex;
+		align-items: center;
 	}
 }

@@ -4,9 +4,10 @@ import {Challenge} from "../../types"
 import {getRandomIntBetween} from "../../lib/helpers"
 import {IdentityContext, Identity} from "../../context/IdentityContext"
 
+// ideally everything would be provided by the backend
 // add pronunciations alt="" (eg: nein, niinnne, etc) to the icons
 // add animations to make the test more interactive
-// add delay between tests and a limit
+// add delay between tests after the 2nd (max limit is useless)
 
 const digits = [
 	"/5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9.svg",
@@ -23,11 +24,12 @@ const digits = [
 
 let uid = -1
 
+
 interface ChallengeAnswersProps {
 	currentChallenge: Challenge,
-	onClick: (answer: number) => void,
+	onClick: (answer: number) => void
 }
-
+// generates 9 possible answers
 const ChallengeAnswers : React.FC<ChallengeAnswersProps> = ({currentChallenge, onClick}) => {
 	const [answers, setAnswers] = useState<number[]>([])
 
@@ -64,12 +66,15 @@ const ChallengeAnswers : React.FC<ChallengeAnswersProps> = ({currentChallenge, o
 	</div>
 }
 
-const IdentityTest: React.FC = () => {
+
+const IdentityTest : React.FC = () => {
 	const [challenge, setChallenge] = useState(new Challenge())
 	const [_, setIdentity] = useContext(IdentityContext)
 
 	const handleClick = (answer : number) => {
-		if(challenge.solution === answer) return setIdentity(Identity.HUMAN)
+		if(challenge.solution === answer) {
+			return setIdentity(Identity.HUMAN)
+		}
 		setChallenge(new Challenge())
 	}
 

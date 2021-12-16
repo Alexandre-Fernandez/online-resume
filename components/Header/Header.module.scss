@@ -9,7 +9,8 @@
 
 .picture_container {
 	background: $dark-blue-1;
-	width: var(--sidebar-width);
+	max-width: var(--sidebar-width);
+	min-width: var(--sidebar-width);
 	text-align: center;
 	display: flex;
 	flex-direction: column;

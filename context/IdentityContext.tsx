@@ -1,10 +1,6 @@
 import {createContext, useState} from "react"
-
-export enum Identity {
-	ROBOT,
-	TESTING,
-	HUMAN
-}
+import {Identity} from "../types"
+export {Identity} from "../types" // forwarding Identity
 
 type IdentityContextType = [Identity, React.Dispatch<React.SetStateAction<Identity>>]
 

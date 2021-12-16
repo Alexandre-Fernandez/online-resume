@@ -3,7 +3,6 @@ import {useContext, useRef, useEffect, useState} from "react"
 import {IdentityContext, Identity} from "../../context/IdentityContext"
 import PopUpBackround from "../PopUpBackround"
 import IdentityPopup from "../IdentityPopup"
-
 import useClickOutside from "../../hooks/useClickOutside"
 
 enum InfoIconState {
@@ -12,9 +11,10 @@ enum InfoIconState {
 	OPENED
 }
 
+
 interface InfoIconProps {
 	src: string,
-	alt: string
+	alt: string,
 	className?: string,
 	isProtected?: boolean
 }
@@ -24,48 +24,43 @@ const InfoIcon : React.FC<InfoIconProps> = ({
 }) => {
 	const [identity, setIdentity] = useContext(IdentityContext)
 	const [state, setState] = useState(InfoIconState.CLOSED)
-	const iconRef = useRef()
-	const infoBoxRef = useRef()
-
-	useEffect(() => {
-		if(!isProtected || state !== InfoIconState.WAITING) return
-		if(identity === Identity.HUMAN) return setState(InfoIconState.OPENED)
-	}, [identity]);
+	const ref = useRef()
 
 	const handleIconClick = () => {
-		if(isProtected && identity === Identity.ROBOT) {
+		if(!isProtected || identity === Identity.HUMAN) return setState(InfoIconState.OPENED)
+		if(identity === Identity.ROBOT) {
+			setState(InfoIconState.WAITING)
 			setIdentity(Identity.TESTING)
-			return setState(InfoIconState.WAITING)
 		}
-		setState(InfoIconState.OPENED)
 	}
 
-	const handleCloseInfoBox = () => {
-		if(identity === Identity.TESTING) return // used by useClickOutside(iconRef)
+	const handleClickOutsideRef = () => {
+		if(identity === Identity.TESTING) return
 		setState(InfoIconState.CLOSED)
 	}
 
-	useClickOutside(infoBoxRef, handleCloseInfoBox)
-	useClickOutside(iconRef, () => ( // prevents stacking open states before IdentityPopup
-		!isProtected || identity !== Identity.HUMAN
-	) && handleCloseInfoBox)
+	useEffect(() => {
+		if(identity !== Identity.HUMAN) return
+		if(state === InfoIconState.WAITING) setState(InfoIconState.OPENED)
+	}, [identity])
+
+	useClickOutside(ref, handleClickOutsideRef)
 
 	return <>
-		<div className={styles.info_icon}>
+		<div className={styles.info_icon} ref={ref}>
 			<img 
 			src={src} 
 			alt={alt} 
 			className={className}
 			onClick={handleIconClick}
-			ref={iconRef}
 			/>{
-			state === InfoIconState.OPENED && <div className={styles.info_box} ref={infoBoxRef}>{
+			state === InfoIconState.OPENED && <div className={styles.info_box}>{
 				(!isProtected || identity === Identity.HUMAN) && children
 			}</div>
 		}</div>
-		{
-			identity === Identity.TESTING && 
-			<PopUpBackround onClick={() => setIdentity(Identity.ROBOT)}>
+		{	// we could also move this to index and share it with context
+			identity === Identity.TESTING &&
+			<PopUpBackround onClick={() => setIdentity(Identity.ROBOT)}> 
 				<IdentityPopup />
 			</PopUpBackround>
 		}

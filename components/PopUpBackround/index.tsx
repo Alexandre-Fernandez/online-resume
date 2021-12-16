@@ -3,7 +3,7 @@ import {useRef} from "react"
 import withPortal from "../../hoc/withPortal"
 
 interface PopUpBackroundProps {
-	onClick: () => void,
+	onClick?: () => void,
 	children: any
 }
 
@@ -14,7 +14,7 @@ const PopUpBackround : React.FC<PopUpBackroundProps> = ({children, onClick}) => 
 		if(e.target === ref.current) onClick()
 	}
 
-	return <div className={styles.popup_wrapper} ref={ref} onClick={handleClick}>
+	return <div className={styles.popup_background} ref={ref} onClick={handleClick}>
 		{children}
 	</div>
 }
