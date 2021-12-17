@@ -1,4 +1,3 @@
-import styles from "./PopUpBackround.module.scss"
 import {useRef} from "react"
 import withPortal from "../../hoc/withPortal"
 
@@ -14,7 +13,7 @@ const PopUpBackground : React.FC<PopUpBackroundProps> = ({children, onClick}) =>
 		if(e.target === ref.current) onClick()
 	}
 
-	return <div className={styles.popup_background} ref={ref} onClick={handleClick}>
+	return <div className="popup-background" ref={ref} onClick={handleClick}>
 		{children}
 	</div>
 }

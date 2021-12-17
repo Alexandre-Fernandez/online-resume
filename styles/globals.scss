@@ -48,10 +48,6 @@ h1, h2, h3, .subheading {
 	padding-top: 2.5vw;
 }
 
-.hidden {
-	display: none;
-}
-
 .popup {
 	background: white;
 	padding: 1.5vmax 2vmax 3vmax;
@@ -60,53 +56,6 @@ h1, h2, h3, .subheading {
 	text-align: center;
 }
 
-
-.section {
-	
-	text-align: center;
-	
-	/*&:not(:first-child) {
-		margin-top: 2.5vw;
-	}*/
-
-	h2 {
-		width: 100%;
-		font-size: 1.75vw; // 1.75vw
-		line-height: 2vw; // 2vw
-	}
-
-	h3 {
-		font-size: 1.1vw;
-		line-height: 1.75vw;
-	}
-
-	&--side {
-		margin-top: 2.5vw;
-
-		h2 {
-			border-bottom: 2px solid white;
-			margin-bottom: 0.6vw;
-		}
-		
-		p {
-			line-height: 1.2vw;
-			padding: 0 2.1vw;
-		}
-	}
-
-	&--main {
-		padding-bottom: 0.75vw;
-		margin-bottom: 2.25vw;
-
-		h2 {
-			margin-bottom: 3vw;
-		}
-
-		&:not(:last-child) {
-			border-bottom: 2px solid $grey-1;
-		}
-	}
+.hidden {
+	display: none;
 }
-
-
-

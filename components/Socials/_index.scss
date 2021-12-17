@@ -1,0 +1,32 @@
+.socials {
+	width: 100%;
+
+	&__list {
+		width: 70%;
+		margin: auto;
+		display: flex;
+		justify-content: space-around;
+		align-items: stretch;
+	}
+
+	&__item {
+		width: 13.5%;
+
+		img {
+			max-height: 70%;
+			width: 100%;
+			cursor: pointer;
+
+			&:hover {
+				// $white-1 ==> $grey-2
+				filter: brightness(0) invert(66%) sepia(7%) saturate(496%) hue-rotate(169deg) brightness(91%) contrast(86%);
+			}
+		}
+	}
+
+	&__link {
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+}

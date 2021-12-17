@@ -12,6 +12,10 @@
 	&--active { 
 		background: $dark-blue-1;
 		color: $white-1;
+
+		&:hover {
+			background: $grey-2 !important;
+		}
 	}
 
 	&:hover {

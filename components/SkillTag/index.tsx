@@ -24,7 +24,7 @@ const SkillTag: React.FC<SkillTagProps> = ({name}) => {
 	}
 
 	return <button 
-		className={`skill-tag ${isToggled ? "skill-tag--active" : ""}`}
+		className={`skill-tag${isToggled ? " skill-tag--active" : ""}`}
 		onClick={handleClick}
 	>
 		{name}

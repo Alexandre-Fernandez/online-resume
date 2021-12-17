@@ -1,4 +1,3 @@
-import styles from "./InfoIcon.module.scss"
 import {useContext, useRef, useEffect, useState} from "react"
 import {IdentityContext, Identity} from "../../context/IdentityContext"
 import PopUpBackground from "../PopUpBackground"
@@ -11,16 +10,14 @@ enum InfoIconState {
 	OPENED
 }
 
-
 interface InfoIconProps {
 	src: string,
 	alt: string,
-	className?: string,
 	isProtected?: boolean
 }
 
 const InfoIcon : React.FC<InfoIconProps> = ({
-	src, alt, children, className = "", isProtected = true
+	src, alt, children, isProtected = true
 }) => {
 	const [identity, setIdentity] = useContext(IdentityContext)
 	const [state, setState] = useState(InfoIconState.CLOSED)
@@ -47,18 +44,18 @@ const InfoIcon : React.FC<InfoIconProps> = ({
 	useClickOutside(ref, handleClickOutsideRef)
 
 	return <>
-		<div className={styles.info_icon} ref={ref}>
+		<div className="info_icon" ref={ref}>
 			<img 
 			src={src} 
 			alt={alt} 
-			className={className}
+			className="info_icon__icon"
 			onClick={handleIconClick}
 			/>{
-			state === InfoIconState.OPENED && <div className={styles.info_box}>{
+			state === InfoIconState.OPENED && <div className="info_icon__info-box">{
 				(!isProtected || identity === Identity.HUMAN) && children
 			}</div>
 		}</div>
-		{	// we could also move this to index and share it with context
+		{	// possible to move this to index.tsx and trigger it with context
 			identity === Identity.TESTING &&
 			<PopUpBackground onClick={() => setIdentity(Identity.ROBOT)}> 
 				<IdentityPopup />

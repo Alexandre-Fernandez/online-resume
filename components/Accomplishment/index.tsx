@@ -13,16 +13,16 @@ const Accomplishement: React.FC<AccomplishementProps> = ({children, tags, isList
 
 	const component = <>{
 			Children.map(children, child => typeof child === "string" 
-			? <p>{child}</p> 
+			? <p className="accomplishement__description">{child}</p> 
 			: child
 		)}
-		<div>{
+		<div className="accomplishement__tags">{
 			tags && tags.map(tag => <SkillTag key={tag} name={tag}/>)
 		}</div>
 	</>
 	return isActive && (isListItem 
-		? <li>{component}</li>
-		: <div>{component}</div>
+		? <li className="accomplishement">{component}</li>
+		: <div className="accomplishement">{component}</div>
 	)
 }
 
