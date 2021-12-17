@@ -9,10 +9,10 @@ import SkillCategory from "../components/SkillCategory"
 
 
  /* TODO:
- - Add contact form
  - Refactor SCSS modules to regular SCSS BEM
  - Add all content & links
  - Make sure style looks great
+ - Add contact form
  - Make responsive
  - Translate with i18next
  - Animate SCSS

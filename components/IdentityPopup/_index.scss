@@ -1,0 +1,12 @@
+@use "../../styles/abstracts" as *;
+
+.identity-popup {
+	&__heading {
+		font-size: 3vmax;
+	}
+
+	&__description {
+		margin-top: 0.6vmax;
+		font-size: 1.15vmax;
+	}
+}

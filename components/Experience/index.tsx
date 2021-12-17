@@ -1,4 +1,3 @@
-import styles from "./Experience.module.scss"
 import {useState, useEffect, Children} from "react"
 import {SkillFilterContext, Skills} from "../../context/SkillFilterContext"
 import useSkillFilter from "../../hooks/useSkillFilter"
@@ -28,26 +27,23 @@ const Experience: React.FC<ExperienceProps> = ({
 		setSkillTags([...temp])
 	}, []);
 
-	return isActive && <article className={styles.experience}>
+	const experienceHeader = <>
+		<h3 className="experience__title">{title}</h3>
+		<div className="experience__info">
+			<p className="experience__subtitle">{subtitle}</p>
+			<p className="experience__duration">{duration}</p>
+		</div>
+	</>
+	return isActive && <article className="experience">
 		{	link 
-			? <a href={link}>
-				<h3>{title}</h3>
-				<div className={styles.subtitle_container}>
-					<span>{subtitle}</span><span>{duration}</span>
-				</div>
-			</a>
-			: <>
-				<h3>{title}</h3>
-				<div className={styles.subtitle_container}>
-					<span>{subtitle}</span><span>{duration}</span>
-				</div>
-			</>
-		}{ tags && <div>{
+			? <a className="experience__link" href={link}>{experienceHeader}</a>
+			: <>{experienceHeader}</>
+		}{ tags && <div className="experience__tags">{
 				tags && tags.map(tag => <SkillTag key={tag} name={tag}/>)
 			}</div>
-		}{	// <Experience> creates the <ul> and <Accomplishment> creates its <li>
+		}{	// <Experience> creates the <ul> and <Accomplishment> creates its <li>, this is done so <Accomplishment> can hide while keeping both of these components independant
 			createList 
-			? <ul>{
+			? <ul className="experience__list list">{
 				children
 			}</ul>
 			: children

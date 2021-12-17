@@ -1,13 +1,13 @@
-import styles from "./IdentityTest.module.scss"
 import {useState, useEffect, useContext} from "react"
 import {Challenge} from "../../types"
 import {getRandomIntBetween} from "../../lib/helpers"
 import {IdentityContext, Identity} from "../../context/IdentityContext"
 
-// ideally everything would be provided by the backend
-// add pronunciations alt="" (eg: nein, niinnne, etc) to the icons
-// add animations to make the test more interactive
-// add delay between tests after the 2nd (max limit is useless)
+// TODO: the best improvement to security would be the addition of a backend
+// frontend improvements :
+// - add pronunciations alt="" (eg: naynn, ninnne, etc) to the icons, 
+//   this will make the website more accesible for humans and still hard to read by robots
+// - add exponential delay after each failed test
 
 const digits = [
 	"/5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9.svg",
@@ -24,18 +24,18 @@ const digits = [
 
 let uid = -1
 
-
 interface ChallengeAnswersProps {
 	currentChallenge: Challenge,
-	onClick: (answer: number) => void
+	onClick: (answer: number) => void,
+	parentClass?: string
 }
-// generates 9 possible answers
-const ChallengeAnswers : React.FC<ChallengeAnswersProps> = ({currentChallenge, onClick}) => {
+// Generates 9 buttons/possible answers
+const ChallengeAnswers : React.FC<ChallengeAnswersProps> = ({parentClass, currentChallenge, onClick}) => {
 	const [answers, setAnswers] = useState<number[]>([])
 
 	useEffect(() => {
 		const challengeSolutionIndex = getRandomIntBetween(0, 8)
-		const temp = new Array(9).fill(-1) //.forEach() won't trigger on FireFox without .fill()
+		const temp = new Array(9).fill(0) //.forEach() won't trigger on FireFox without .fill()
 		temp.forEach((_, i) => { 
 			if(i === challengeSolutionIndex) return temp[i] = currentChallenge.solution
 			let solution = new Challenge().solution
@@ -47,27 +47,35 @@ const ChallengeAnswers : React.FC<ChallengeAnswersProps> = ({currentChallenge, o
 		setAnswers(temp)
 	}, [currentChallenge]);
 
-	return <div className={styles.answers}>
+	return <div className={`${parentClass ? parentClass + "__challenge-answers " : ""}challenge-answers`}>
 		{
-			answers.map((solution, i) => <button 
+			answers.map(answer => <button 
 				key={++uid}
-				className={styles.answer_btn}
-				onClick={() => onClick(solution)}
-			>	{
-					solution > 9 
-					? <>
-						<img src={`/digits/${digits[parseInt(solution.toString()[0])]}`}/>
-						<img src={`/digits/${digits[parseInt(solution.toString()[1])]}`}/>
-					</>
-					: <img src={`/digits/${digits[solution]}`}/>
-				}
-			</button>)
+				className="challenge-answers__answer-btn"
+				onClick={() => onClick(answer)}
+			>{
+				answer > 9 
+				? <>
+					<img 
+						className="challenge-answers__digit" 
+						src={`/digits/${digits[parseInt(answer.toString()[0])]}`}
+					/><img 
+						className="challenge-answers__digit" 
+						src={`/digits/${digits[parseInt(answer.toString()[1])]}`}
+					/>
+				</>
+				: <img className="challenge-answers__digit" src={`/digits/${digits[answer]}`}/>
+			}</button>)
 		}
 	</div>
 }
 
 
-const IdentityTest : React.FC = () => {
+interface IdentityTestProps {
+	parentClass?: string
+}
+
+const IdentityTest : React.FC<IdentityTestProps> = ({parentClass}) => {
 	const [challenge, setChallenge] = useState(new Challenge())
 	const [_, setIdentity] = useContext(IdentityContext)
 
@@ -78,14 +86,14 @@ const IdentityTest : React.FC = () => {
 		setChallenge(new Challenge())
 	}
 
-	return <div className={styles.test}>
-		<div className={styles.challenge}>
-			<img src={`/digits/${digits[challenge.a]}`}/>
+	return <div className={`${parentClass ? parentClass + "__identity-test " : ""}identity-test`}>
+		<div className="identity-test__challenge">
+			<img className="identity-test__digit" src={`/digits/${digits[challenge.a]}`}/>
 			<span> + </span>
-			<img src={`/digits/${digits[challenge.b]}`}/>
+			<img className="identity-test__digit" src={`/digits/${digits[challenge.b]}`}/>
 			<span> = </span>
 		</div>
-		<ChallengeAnswers currentChallenge={challenge} onClick={handleClick}/>
+		<ChallengeAnswers parentClass="identity-test" currentChallenge={challenge} onClick={handleClick}/>
 	</div>
 }
  
