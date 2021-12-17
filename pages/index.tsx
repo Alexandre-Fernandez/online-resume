@@ -1,31 +1,22 @@
 import Head from "next/head"
+import {Skills} from "../types"
 import Header from "../components/Header"
 import Sidebar from "../components/Sidebar"
 import Section from "../components/Section"
 import Experience from "../components/Experience"
 import Accomplishment from "../components/Accomplishment"
-import {Skills} from "../types"
+import SkillCategory from "../components/SkillCategory"
 
-// SkillContext(new Set()) // The tag component interacts with context
 
-// All .content components except section titles dissapear if atleast one tag 
-// is selected and none of their tag matches it
-
-// Content section children register all their children by tag (as id) 
-// and choose to display them or not if none of their children matches 
-// they add hidden class to themselves
-
-/*
-
-context = new Set(React, NodeJS, Javascript, Typescript) 
-
-tag parent:
-by relevance [React, Typescript, NodeJS, ...].map(tag => <Tag name={tag}/>)
-on context change loop thorugh array
+ /* TODO:
+ - Add contact form
+ - Refactor SCSS modules to regular SCSS BEM
+ - Add all content & links
+ - Make sure style looks great
+ - Make responsive
+ - Translate with i18next
+ - Animate SCSS
 */
-
-
-
 
 const Index : React.FC = () => {
 	return <>
@@ -39,12 +30,32 @@ const Index : React.FC = () => {
 		<main>
 			<Sidebar>
 				<Section type="side" name="À PROPOS" >
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
 				</Section>
+
 				<Section type="side" name="COMPÉTENCES">
-					<p>Lorem ipsum dolor sit amet consectetur adipiscing elit faucibus</p>
+					<SkillCategory 
+						name="Full stack" 
+						tags={[Skills.JAVASCRIPT, Skills.TYPESCRIPT, Skills.NODEJS, Skills.NEXT, Skills.EJS, Skills.WORDPRESS]}
+					/><SkillCategory 
+						name="Back-end" 
+						tags={[Skills.EXPRESS, Skills.MYSQL, Skills.MONGODB, Skills.MONGOOSE]}
+					/><SkillCategory 
+						name="Front-end" 
+						tags={[Skills.REACT, Skills.REACT_NATIVE, Skills.REDUX, Skills.WEBPACK, Skills.JQUERY, Skills.HTML, Skills.CSS, Skills.SASS]}
+					/><SkillCategory 
+						name="Software" 
+						tags={[Skills.PHOTOSHOP, Skills.ILLUSTRATOR, Skills.XD, Skills.VEGAS, Skills.UNITY, Skills.GODOT, Skills.BLENDER, Skills.WORD, Skills.EXCEL, Skills.POWERPOINT]}
+					/><SkillCategory 
+						name="Langues" 
+						tags={[Skills.FRENCH, Skills.ENGLISH, Skills.SPANISH]}
+					/><SkillCategory 
+						name="Divers" 
+						tags={[Skills.GIT, Skills.SEO, Skills.RESPONSIVE, Skills.API_REST, Skills.OAUTH2, Skills.MVC, Skills.BEM, Skills.CS, Skills.CPP, Skills.GDSCRIPT, Skills.PATTERNS, Skills.DATA_STRUCT]}
+					/>
 				</Section>
 			</Sidebar>
+
 			<div className="content">
 				<Section type="main" name="EXPÉRIENCES PROFESSIONNELLES">
 					<Experience 
@@ -52,13 +63,14 @@ const Index : React.FC = () => {
 						subtitle="CITY BUS" 
 						duration="2016-2020"
 					>
-						<Accomplishment tags={[Skills.CS, Skills.CSS, Skills.EJS]}>
+						<Accomplishment 
+							tags={[Skills.CS, Skills.BEM, Skills.EXPRESS]}>
 							Supervision du planning et gestion de ses changements en cas de	problème (véhicules en panne, retards chauffeur, etc).
-						</Accomplishment>
-						<Accomplishment tags={[Skills.CS, Skills.CSS, Skills.EJS]}>
+						</Accomplishment><Accomplishment 
+							tags={[Skills.CS, Skills.BEM, Skills.EXPRESS]}>
 							Détermination des besoins en ressources humaines et en véhicules.
-						</Accomplishment>
-						<Accomplishment tags={[Skills.API_REST]}>
+						</Accomplishment><Accomplishment 
+							tags={[Skills.BEM]}>
 							Tableaux de bords, suivi des dossiers clients, devis, saisies, etc...
 						</Accomplishment>
 					</Experience>
@@ -67,15 +79,71 @@ const Index : React.FC = () => {
 						subtitle="Business Support Services – B2S" 
 						duration="2014-2015"
 					>
-						<Accomplishment tags={[Skills.CSS, Skills.EJS, Skills.BLENDER]}>
+						<Accomplishment 
+							tags={[Skills.CSS, Skills.EJS, Skills.BLENDER]}>
 							Gestion de l’équipe (performances, disponibilités et incidents).
-						</Accomplishment>
-						<Accomplishment tags={[Skills.EJS, Skills.API_REST, Skills.CPP]}>
+						</Accomplishment><Accomplishment 
+							tags={[Skills.EJS, Skills.API_REST, Skills.CPP]}>
 							Revue des performances collectives et individuelles et établissement de la stratégie coaching du mois.
-						</Accomplishment>
-						<Accomplishment tags={[Skills.API_REST, Skills.CSS]}>
+						</Accomplishment><Accomplishment 
+							tags={[Skills.CS, Skills.CSS]}>
 							Assurer le respect des normes qualité Nissan.
 						</Accomplishment>
+					</Experience>
+				</Section>
+
+				<Section type="main" name="FORMATIONS">
+					<Experience 
+						title="Concepteur développeur d'applications - BAC +4" 
+						subtitle="3W Academy" 
+						duration="2022-2023"
+						link="https://www.francecompetences.fr/recherche/rncp/31678/"
+					>
+					</Experience><Experience 
+						title="Développeur intégrateur en réalisation d'applications web - BAC +2" 
+						subtitle="3W Academy" 
+						duration="2021-2022"
+						link="https://www.francecompetences.fr/recherche/rncp/34393/"
+						tags={[Skills.REACT, Skills.REACT_NATIVE, Skills.EXPRESS]}
+					>
+					</Experience><Experience 
+						title="Autoformation informatique" 
+						subtitle="Livres et internet" 
+						duration="2013-2021"
+						tags={[Skills.CPP, Skills.CS, Skills.GDSCRIPT]}
+					>
+					</Experience><Experience 
+						title="Baccalauréat Scientifique" 
+						subtitle="Lycée Gil y Carrasco (Espagne)" 
+						duration="2011-2012"
+					>
+					</Experience>
+				</Section>
+
+				<Section type="main" name="PROJETS">
+					<Experience 
+						title="Concepteur développeur d'applications - BAC +4" 
+						subtitle="3W Academy" 
+						duration="2022-2023"
+						
+					>
+					</Experience><Experience 
+						title="Développeur web full stack - BAC +2" 
+						subtitle="3W Academy" 
+						duration="2021-2022"
+						tags={[Skills.REACT, Skills.REACT_NATIVE, Skills.EXPRESS, Skills.API_REST, Skills.HTML, Skills.CSS, Skills.JAVASCRIPT, Skills.MYSQL, Skills.REDUX, Skills.RESPONSIVE]}
+					>
+					</Experience><Experience 
+						title="Autoformation informatique" 
+						subtitle="Livres et internet" 
+						duration="2013-2021"
+						tags={[Skills.CPP, Skills.CS, Skills.GDSCRIPT]}
+					>
+					</Experience><Experience 
+						title="Baccalauréat Scientifique" 
+						subtitle="Lycée Gil y Carrasco (Espagne)" 
+						duration="2011-2012"
+					>
 					</Experience>
 				</Section>
 			</div>

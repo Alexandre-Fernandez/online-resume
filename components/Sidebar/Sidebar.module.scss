@@ -1,7 +1,6 @@
 @use "../../styles/abstracts" as *;
 
 .sidebar {
-	height: 100vh; // temporary
 	max-width: var(--sidebar-width);
 	min-width: var(--sidebar-width);
 	padding: var(--content-padding);

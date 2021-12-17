@@ -1,15 +1,16 @@
-import styles from "./Accomplishement.module.scss"
-import {Skills} from "../../types"
 import SkillTag from "../SkillTag"
-import {useState, useEffect, useContext, Children, Fragment} from "react"
-
+import {Children} from "react"
+import {SkillFilterContext, Skills} from "../../context/SkillFilterContext"
+import useSkillFilter from "../../hooks/useSkillFilter"
 
 interface AccomplishementProps {
 	tags?: Skills[],
 	isListItem?: boolean
 }
+
 const Accomplishement: React.FC<AccomplishementProps> = ({children, tags, isListItem = true}) => {
-	
+	const isActive = useSkillFilter(SkillFilterContext, tags)
+
 	const component = <>{
 			Children.map(children, child => typeof child === "string" 
 			? <p>{child}</p> 
@@ -19,9 +20,10 @@ const Accomplishement: React.FC<AccomplishementProps> = ({children, tags, isList
 			tags && tags.map(tag => <SkillTag key={tag} name={tag}/>)
 		}</div>
 	</>
-	return isListItem 
-	? <li>{component}</li>
-	: <div>{component}</div>
+	return isActive && (isListItem 
+		? <li>{component}</li>
+		: <div>{component}</div>
+	)
 }
- 
+
 export default Accomplishement;

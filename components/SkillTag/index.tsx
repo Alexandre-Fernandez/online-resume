@@ -1,4 +1,3 @@
-import styles from "./SkillTags.module.scss"
 import {useContext, useEffect, useState} from "react"
 import {SkillFilterContext, Skills} from "../../context/SkillFilterContext"
 
@@ -25,7 +24,7 @@ const SkillTag: React.FC<SkillTagProps> = ({name}) => {
 	}
 
 	return <button 
-		className={`${styles.skill_tag} ${isToggled ? styles.active : ""}`}
+		className={`skill-tag ${isToggled ? "skill-tag--active" : ""}`}
 		onClick={handleClick}
 	>
 		{name}

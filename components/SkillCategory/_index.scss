@@ -1,0 +1,19 @@
+@use "../../styles/abstracts" as *;
+
+.skill-category {
+	text-align: left;
+	margin-bottom: 0.5vw;
+
+	.skill-tag {
+		color: $white-1;
+
+		&--active {
+			background: $white-1;
+			color: $dark-blue-1;
+		}
+
+		&:hover {
+			background: $grey-2;
+		}
+	}
+}

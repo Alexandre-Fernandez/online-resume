@@ -1,7 +1,7 @@
 import styles from "./InfoIcon.module.scss"
 import {useContext, useRef, useEffect, useState} from "react"
 import {IdentityContext, Identity} from "../../context/IdentityContext"
-import PopUpBackround from "../PopUpBackround"
+import PopUpBackground from "../PopUpBackground"
 import IdentityPopup from "../IdentityPopup"
 import useClickOutside from "../../hooks/useClickOutside"
 
@@ -60,9 +60,9 @@ const InfoIcon : React.FC<InfoIconProps> = ({
 		}</div>
 		{	// we could also move this to index and share it with context
 			identity === Identity.TESTING &&
-			<PopUpBackround onClick={() => setIdentity(Identity.ROBOT)}> 
+			<PopUpBackground onClick={() => setIdentity(Identity.ROBOT)}> 
 				<IdentityPopup />
-			</PopUpBackround>
+			</PopUpBackground>
 		}
 	</>
 }

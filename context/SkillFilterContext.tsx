@@ -2,7 +2,7 @@ import {createContext, useState} from "react"
 import {Skills} from "../types"
 export {Skills} from "../types" // forwarding Skills
 
-type SkillFilterContextType = [Set<string>, React.Dispatch<React.SetStateAction<Set<string>>>]
+export type SkillFilterContextType = [Set<string>, React.Dispatch<React.SetStateAction<Set<string>>>]
 
 export const SkillFilterContext : React.Context<SkillFilterContextType> = createContext(
 	[new Set(), () => console.error("SkillFilterContextProvider unmounted")]

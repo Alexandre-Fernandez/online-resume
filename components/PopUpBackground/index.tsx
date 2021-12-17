@@ -7,7 +7,7 @@ interface PopUpBackroundProps {
 	children: any
 }
 
-const PopUpBackround : React.FC<PopUpBackroundProps> = ({children, onClick}) => {
+const PopUpBackground : React.FC<PopUpBackroundProps> = ({children, onClick}) => {
 	const ref = useRef(null)
 
 	const handleClick = (e : React.MouseEvent) => {
@@ -19,4 +19,4 @@ const PopUpBackround : React.FC<PopUpBackroundProps> = ({children, onClick}) => 
 	</div>
 }
 
-export default withPortal(PopUpBackround)
+export default withPortal(PopUpBackground)

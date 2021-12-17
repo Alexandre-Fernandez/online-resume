@@ -24,14 +24,21 @@ export enum Identity {
 
 export enum Skills {
 	// FULL STACK
-	NEXT = "Next.js",
+	JAVASCRIPT = "JavaScript",
+	TYPESCRIPT = "TypeScript",
 	NODEJS = "Node.js",
+	NEXT = "Next.js",
 	EJS = "EJS",
+	WORDPRESS = "Wordpress",
 	// FRONT END
 	REACT = "React",
 	REACT_NATIVE = "React Native",
 	REDUX = "Redux",
 	WEBPACK = "webpack",
+	JQUERY = "jQuery",
+	SASS = "SASS",
+	CSS = "CSS",
+	HTML = "HTML",
 	// BACK END
 	EXPRESS = "Express.js",
 	MYSQL = "MySQL",
@@ -40,6 +47,7 @@ export enum Skills {
 	// SOFTWARE
 	PHOTOSHOP = "Adobe Photoshop",
 	ILLUSTRATOR = "Adobe Illustrator",
+	XD = "Adobe XD",
 	VEGAS = "Vegas Pro",
 	UNITY = "Unity",
 	GODOT = "Godot Engine",
@@ -48,23 +56,20 @@ export enum Skills {
 	EXCEL = "Microsoft Excel",
 	POWERPOINT = "Microsoft PowerPoint",
 	// LANGUAGE
-	JAVASCRIPT = "JavaScript",
-	TYPESCRIPT = "TypeScript",
-	JQUERY = "jQuery",
-	CS = "C#",
-	CPP = "C++",
-	SASS = "SASS",
-	CSS = "CSS",
-	HTML = "HTML",
 	ENGLISH = "English",
 	SPANISH = "Spanish",
 	FRENCH = "French",
 	// MISC
 	GIT = "Git",
 	SEO = "SEO",
-	RESPONSIVE_DESIGN = "Responsive Design",
+	RESPONSIVE = "Responsive Design",
 	API_REST = "API REST",
 	OAUTH2 = "OAuth 2.0",
 	MVC = "MVC",
 	BEM = "BEM",
+	CS = "C#",
+	CPP = "C++",
+	GDSCRIPT = "GDScript",
+	PATTERNS = "Programming Patterns",
+	DATA_STRUCT = "Data Structures"
 }
