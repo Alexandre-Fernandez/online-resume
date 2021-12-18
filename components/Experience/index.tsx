@@ -5,15 +5,15 @@ import SkillTag from "../SkillTag"
 
 interface ExperienceProps {
 	title: string
-	subtitle: string,
 	duration: string,
+	subtitle?: string,
 	link?: string,
 	tags?: Skills[],
 	createList?: boolean
 }
 
 const Experience: React.FC<ExperienceProps> = ({
-	children, title, subtitle, duration, link, tags, createList = true
+	children, title, subtitle, duration, link, tags = [], createList = true
 }) => {
 	const [skillTags, setSkillTags] = useState<Skills[]>([])
 	const isActive = useSkillFilter(SkillFilterContext, skillTags)
@@ -27,16 +27,17 @@ const Experience: React.FC<ExperienceProps> = ({
 		setSkillTags([...temp])
 	}, []);
 
-	const experienceHeader = <>
-		<h3 className="experience__title">{title}</h3>
-		<div className="experience__info">
-			<p className="experience__subtitle">{subtitle}</p>
-			<p className="experience__duration">{duration}</p>
-		</div>
-	</>
+	const titleH3 = <h3 className="experience__title">{title}</h3>
+	const subtitleP = <p className="experience__subtitle">{subtitle}</p>
+	const durationP = <p className="experience__duration">{duration}</p>
+
+	const experienceHeader = <>{ subtitle 
+		? <>{titleH3}<div className="experience__info">{subtitleP}{durationP}</div></>
+		: <><div className="experience__info">{titleH3}{durationP}</div></>
+	}</>
 	return isActive && <article className="experience">
 		{	link 
-			? <a className="experience__link" href={link}>{experienceHeader}</a>
+			? <a className="experience__link" href={link} target="_blank">{experienceHeader}</a>
 			: <>{experienceHeader}</>
 		}{ tags && <div className="experience__tags">{
 				tags && tags.map(tag => <SkillTag key={tag} name={tag}/>)

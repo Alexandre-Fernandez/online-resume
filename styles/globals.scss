@@ -20,6 +20,20 @@ body {
 	font-size: 0.84vw; // 0.84vmax
 }
 
+h1, h2, h3, label, .subheading {
+	font-family: "Poppins";
+}
+
+h2 {
+	font-size: 1.75vw;
+	line-height: 2vw;
+}
+
+h3, label {
+	font-size: 1.1vw;
+	line-height: 1.75vw;
+	font-weight: 700;
+}
 
 header, 
 main, 
@@ -28,24 +42,16 @@ footer {
 	margin: auto;
 }
 
-
 main {
 	display: flex;
 	justify-content: center;
 	
-	.content {
+	.main-content {
 		flex-grow: 1;
 		background: $white-1;
+		padding: var(--content-padding);
+		padding-top: 2.5vw;
 	}
-}
-
-h1, h2, h3, .subheading {
-	font-family: "Poppins";
-}
-
-.content {
-	padding: var(--content-padding);
-	padding-top: 2.5vw;
 }
 
 .popup {

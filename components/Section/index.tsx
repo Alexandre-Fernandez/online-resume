@@ -11,7 +11,9 @@ const Section: React.FC<SectionProps> = ({children, type, name, className}) => {
 		${className ? "section--" + className : ""}`
 	}>
 		<h2>{name.toUpperCase()}</h2>
-		{children}
+		<div className="section__content">
+			{children}
+		</div>
 	</section>
 }
  

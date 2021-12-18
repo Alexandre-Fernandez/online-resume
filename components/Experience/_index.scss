@@ -2,7 +2,7 @@
 
 .experience {
 	text-align: left;
-	margin-bottom: 0.5vw;
+	margin-bottom: 1.5vw;
 	
 	&__link:hover {
 		text-decoration: underline;
@@ -12,7 +12,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		font-weight: 500;
+		
+		p {
+			font-weight: 500;
+		}
 	}
 
 	&__list {

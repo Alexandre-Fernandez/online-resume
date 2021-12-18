@@ -8,7 +8,9 @@ interface AccomplishementProps {
 	isListItem?: boolean
 }
 
-const Accomplishement: React.FC<AccomplishementProps> = ({children, tags, isListItem = true}) => {
+const Accomplishement: React.FC<AccomplishementProps> = (
+	{children, tags = [], isListItem = true}
+) => {
 	const isActive = useSkillFilter(SkillFilterContext, tags)
 
 	const component = <>{
@@ -22,7 +24,7 @@ const Accomplishement: React.FC<AccomplishementProps> = ({children, tags, isList
 	</>
 	return isActive && (isListItem 
 		? <li className="accomplishement">{component}</li>
-		: <div className="accomplishement">{component}</div>
+		: <article className="accomplishement">{component}</article>
 	)
 }
 

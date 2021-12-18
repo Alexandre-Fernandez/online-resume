@@ -6,12 +6,9 @@ import Section from "../components/Section"
 import Experience from "../components/Experience"
 import Accomplishment from "../components/Accomplishment"
 import SkillCategory from "../components/SkillCategory"
-
+import ContactForm from "../components/ContactForm"
 
  /* TODO:
- - Refactor SCSS modules to regular SCSS BEM
- - Add all content & links
- - Make sure style looks great
  - Add contact form
  - Make responsive
  - Translate with i18next
@@ -45,32 +42,30 @@ const Index : React.FC = () => {
 						tags={[Skills.REACT, Skills.REACT_NATIVE, Skills.REDUX, Skills.WEBPACK, Skills.JQUERY, Skills.HTML, Skills.CSS, Skills.SASS]}
 					/><SkillCategory 
 						name="Software" 
-						tags={[Skills.PHOTOSHOP, Skills.ILLUSTRATOR, Skills.XD, Skills.VEGAS, Skills.UNITY, Skills.GODOT, Skills.BLENDER, Skills.WORD, Skills.EXCEL, Skills.POWERPOINT]}
+						tags={[Skills.PHOTOSHOP, Skills.ILLUSTRATOR, Skills.XD, Skills.VEGAS, Skills.UNITY, Skills.GODOT, Skills.BLENDER, Skills.WORD, Skills.EXCEL, Skills.POWERPOINT, Skills.AUDACITY]}
 					/><SkillCategory 
 						name="Langues" 
 						tags={[Skills.FRENCH, Skills.ENGLISH, Skills.SPANISH]}
 					/><SkillCategory 
 						name="Divers" 
-						tags={[Skills.GIT, Skills.SEO, Skills.RESPONSIVE, Skills.API_REST, Skills.OAUTH2, Skills.MVC, Skills.BEM, Skills.CS, Skills.CPP, Skills.GDSCRIPT, Skills.PATTERNS, Skills.DATA_STRUCT]}
+						tags={[Skills.GIT, Skills.SEO, Skills.RESPONSIVE, Skills.UIUX, Skills.API_REST, Skills.SECURITY, Skills.MVC, Skills.BEM, Skills.CS, Skills.CPP, Skills.GDSCRIPT, Skills.PATTERNS, Skills.DATA_STRUCT, Skills.OOP, Skills.GAME_DEV, Skills.DB_DESIGN, Skills.DEPLOY, Skills.TESTING, Skills.APP_DESIGN]}
 					/>
 				</Section>
 			</Sidebar>
 
-			<div className="content">
+			<div className="main-content">
 				<Section type="main" name="EXPÉRIENCES PROFESSIONNELLES">
 					<Experience 
 						title="Responsable d'exploitation" 
 						subtitle="CITY BUS" 
 						duration="2016-2020"
+						link="http://www.citybusparis.com/"
 					>
-						<Accomplishment 
-							tags={[Skills.CS, Skills.BEM, Skills.EXPRESS]}>
+						<Accomplishment>
 							Supervision du planning et gestion de ses changements en cas de	problème (véhicules en panne, retards chauffeur, etc).
-						</Accomplishment><Accomplishment 
-							tags={[Skills.CS, Skills.BEM, Skills.EXPRESS]}>
+						</Accomplishment><Accomplishment>
 							Détermination des besoins en ressources humaines et en véhicules.
-						</Accomplishment><Accomplishment 
-							tags={[Skills.BEM]}>
+						</Accomplishment><Accomplishment>
 							Tableaux de bords, suivi des dossiers clients, devis, saisies, etc...
 						</Accomplishment>
 					</Experience>
@@ -78,15 +73,13 @@ const Index : React.FC = () => {
 						title="Superviseur en centre d’appels" 
 						subtitle="Business Support Services – B2S" 
 						duration="2014-2015"
+						link="https://www.linkedin.com/company/b2s/"
 					>
-						<Accomplishment 
-							tags={[Skills.CSS, Skills.EJS, Skills.BLENDER]}>
+						<Accomplishment>
 							Gestion de l’équipe (performances, disponibilités et incidents).
-						</Accomplishment><Accomplishment 
-							tags={[Skills.EJS, Skills.API_REST, Skills.CPP]}>
+						</Accomplishment><Accomplishment>
 							Revue des performances collectives et individuelles et établissement de la stratégie coaching du mois.
-						</Accomplishment><Accomplishment 
-							tags={[Skills.CS, Skills.CSS]}>
+						</Accomplishment><Accomplishment>
 							Assurer le respect des normes qualité Nissan.
 						</Accomplishment>
 					</Experience>
@@ -98,53 +91,57 @@ const Index : React.FC = () => {
 						subtitle="3W Academy" 
 						duration="2022-2023"
 						link="https://www.francecompetences.fr/recherche/rncp/31678/"
+						tags={[Skills.DB_DESIGN, Skills.MYSQL, Skills.OOP, Skills.UIUX, Skills.SECURITY, Skills.DEPLOY, Skills.TESTING, Skills.APP_DESIGN]}
 					>
 					</Experience><Experience 
 						title="Développeur intégrateur en réalisation d'applications web - BAC +2" 
 						subtitle="3W Academy" 
 						duration="2021-2022"
 						link="https://www.francecompetences.fr/recherche/rncp/34393/"
-						tags={[Skills.REACT, Skills.REACT_NATIVE, Skills.EXPRESS]}
+						tags={[Skills.REACT, Skills.REACT_NATIVE, Skills.EXPRESS, Skills.API_REST, Skills.HTML, Skills.CSS, Skills.JAVASCRIPT, Skills.MYSQL, Skills.REDUX, Skills.RESPONSIVE, Skills.GIT, Skills.OOP]}
 					>
 					</Experience><Experience 
 						title="Autoformation informatique" 
 						subtitle="Livres et internet" 
 						duration="2013-2021"
-						tags={[Skills.CPP, Skills.CS, Skills.GDSCRIPT]}
+						tags={[Skills.CPP, Skills.CS, Skills.UNITY, Skills.GDSCRIPT, Skills.GODOT, Skills.GAME_DEV, Skills.OOP, Skills.PATTERNS, Skills.DATA_STRUCT]}
 					>
 					</Experience><Experience 
 						title="Baccalauréat Scientifique" 
 						subtitle="Lycée Gil y Carrasco (Espagne)" 
 						duration="2011-2012"
+						link="http://iesgilycarrasco.centros.educa.jcyl.es/"
 					>
 					</Experience>
 				</Section>
 
 				<Section type="main" name="PROJETS">
 					<Experience 
-						title="Concepteur développeur d'applications - BAC +4" 
-						subtitle="3W Academy" 
-						duration="2022-2023"
-						
-					>
-					</Experience><Experience 
-						title="Développeur web full stack - BAC +2" 
-						subtitle="3W Academy" 
-						duration="2021-2022"
-						tags={[Skills.REACT, Skills.REACT_NATIVE, Skills.EXPRESS, Skills.API_REST, Skills.HTML, Skills.CSS, Skills.JAVASCRIPT, Skills.MYSQL, Skills.REDUX, Skills.RESPONSIVE]}
-					>
-					</Experience><Experience 
-						title="Autoformation informatique" 
-						subtitle="Livres et internet" 
-						duration="2013-2021"
-						tags={[Skills.CPP, Skills.CS, Skills.GDSCRIPT]}
-					>
-					</Experience><Experience 
-						title="Baccalauréat Scientifique" 
-						subtitle="Lycée Gil y Carrasco (Espagne)" 
-						duration="2011-2012"
-					>
-					</Experience>
+						title="Online Resume"
+						subtitle="Réalisation d'un front-end pour mon CV"
+						duration="2021"
+						tags={[Skills.NEXT, Skills.REACT, Skills.TYPESCRIPT, Skills.SASS, Skills.NODEJS, Skills.ILLUSTRATOR, Skills.HTML, Skills.FRENCH, Skills.ENGLISH, Skills.SPANISH, Skills.BEM, Skills.UIUX, Skills.XD]}
+					/><Experience 
+						title="VWMS Solutions"
+						subtitle="Site vitrine pour Vienna Water Monitoring Solutions"
+						duration="2021"
+						link="https://github.com/Alexandre-Fernandez/vwms-frontend"
+						tags={[Skills.WEBPACK, Skills.JAVASCRIPT, Skills.SASS, Skills.REDUX, Skills.NODEJS, Skills.PHOTOSHOP, Skills.ILLUSTRATOR, Skills.HTML, Skills.CSS, Skills.UIUX, Skills.XD]}
+					/><Experience 
+						title="Color Republic"
+						subtitle="Projet full stack d'une plateforme e-commerce" 
+						duration="2021"
+						link="https://github.com/Alexandre-Fernandez/color-republic-backend"
+						tags={[Skills.REACT, Skills.EXPRESS, Skills.MYSQL, Skills.REDUX, Skills.NODEJS, Skills.PHOTOSHOP, Skills.ILLUSTRATOR, Skills.VEGAS, Skills.HTML, Skills.CSS, Skills.UIUX, Skills.SECURITY]}
+					/><Experience 
+						title="Tetris Game Boy Remake" 
+						duration="2021"
+						tags={[Skills.JAVASCRIPT, Skills.OOP, Skills.PHOTOSHOP, Skills.AUDACITY, Skills.GAME_DEV, Skills.HTML]}
+					/>
+				</Section>
+
+				<Section type="main" name="CONTACT">
+					<ContactForm></ContactForm>
 				</Section>
 			</div>
 		</main>

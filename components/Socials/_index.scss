@@ -20,6 +20,7 @@
 			&:hover {
 				// $white-1 ==> $grey-2
 				filter: brightness(0) invert(66%) sepia(7%) saturate(496%) hue-rotate(169deg) brightness(91%) contrast(86%);
+				transform: translateY(-0.1vmax);
 			}
 		}
 	}

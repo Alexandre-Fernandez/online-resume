@@ -55,6 +55,7 @@ export enum Skills {
 	WORD = "Microsoft Word",
 	EXCEL = "Microsoft Excel",
 	POWERPOINT = "Microsoft PowerPoint",
+	AUDACITY = "Audacity",
 	// LANGUAGE
 	ENGLISH = "English",
 	SPANISH = "Spanish",
@@ -64,12 +65,19 @@ export enum Skills {
 	SEO = "SEO",
 	RESPONSIVE = "Responsive Design",
 	API_REST = "API REST",
-	OAUTH2 = "OAuth 2.0",
+	SECURITY = "Web Security",
 	MVC = "MVC",
 	BEM = "BEM",
 	CS = "C#",
 	CPP = "C++",
 	GDSCRIPT = "GDScript",
 	PATTERNS = "Programming Patterns",
-	DATA_STRUCT = "Data Structures"
+	DATA_STRUCT = "Data Structures",
+	OOP = "OOP",
+	GAME_DEV = "Game Development",
+	DB_DESIGN = "Database Design",
+	UIUX = "UI/UX",
+	APP_DESIGN = "App Design",
+	TESTING = "Unit Testing", 
+	DEPLOY = "Aplication Deployment"
 }
