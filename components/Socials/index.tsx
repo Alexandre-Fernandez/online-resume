@@ -1,4 +1,5 @@
 import InfoIcon from "../InfoIcon"
+import ProtectedInfoIcon from "../InfoIcon/ProtectedInfoIcon"
 
 const linkedin = "https://www.linkedin.com/in/alexandre--fernandez/"
 const github = "https://github.com/Alexandre-Fernandez"
@@ -8,17 +9,17 @@ const Socials : React.FC = () => {
 	return <div className="socials">
 		<ul className="socials__list">
 			<li className="socials__item">
-				<InfoIcon src="/phone.svg" alt="Phone">
+				<ProtectedInfoIcon src="/phone.svg" alt="Phone">
 					<a href="tel:0033619670544">+33 (0) 6 19 67 05 44</a>
-				</InfoIcon>
+				</ProtectedInfoIcon>
 			</li>
 			<li className="socials__item">
-				<InfoIcon src="/email.svg" alt="Email">
+				<ProtectedInfoIcon src="/email.svg" alt="Email">
 					<a href="mailto:a.fernandez.martinez@outlook.com">a.fernandez.martinez@outlook.com</a>
-				</InfoIcon>
+				</ProtectedInfoIcon>
 			</li>
 			<li className="socials__item">
-				<InfoIcon src="/pin.svg" alt="Location" isProtected={false}>
+				<InfoIcon src="/pin.svg" alt="Location">
 					<p>Paris, France</p>
 				</InfoIcon>
 			</li>
