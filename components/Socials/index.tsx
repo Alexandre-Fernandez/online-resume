@@ -25,12 +25,12 @@ const Socials : React.FC = () => {
 				</InfoIcon>
 			</li>
 			<li className="socials__item">
-				<a className="socials__link" href={linkedin}>
+				<a className="socials__link" href={linkedin} target="_blank" rel="noreferrer">
 					<img src="/linkedin.svg" alt="LinkedIn"/>
 				</a>
 			</li>
 			<li className="socials__item">
-				<a className="socials__link" href={github}>
+				<a className="socials__link" href={github} target="_blank" rel="noreferrer">
 					<img src="/github.svg" alt="GitHub"/>
 				</a>
 			</li>
