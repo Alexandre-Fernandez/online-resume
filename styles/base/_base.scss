@@ -1,0 +1,72 @@
+@use "../abstracts" as *;
+
+:root {
+	--content-width: 80vw;
+	--content-side-padding: 2vw;
+	--sidebar-width: 30%;
+
+	--font-size-normal: 0.84vw;
+	--font-size-h3: 1.1vw;
+	--font-size-h2: 1.75vw;
+	--font-size-h2-plus: 3vw;
+
+	--small-gap: 0.5vw;
+	--medium-gap: 1.5vw;
+	--large-gap: 2.5vw;
+	--larger-gap: 3vw;
+}
+
+body {
+	color: $dark-blue-1;
+	background-color: $dark-blue-2;
+	padding: calc(calc(var(--content-width) * 0.06) - 4rem) 0;
+	font-family: "Montserrat";
+	font-size: var(--font-size-normal);
+}
+
+h1, h2, h3, label, .subheading {
+	font-family: "Poppins";
+}
+
+h2 {
+	font-size: var(--font-size-h2);
+	line-height: calc(var(--font-size-h2) * 1.15);
+}
+
+h3, label {
+	font-size: var(--font-size-h3);
+	line-height: calc(var(--font-size-h3) * 1.6);
+	font-weight: 700;
+}
+
+header, 
+main, 
+footer {
+	min-width: var(--content-width);
+	max-width: var(--content-width);
+	margin: auto;
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	
+	.main-content {
+		flex-grow: 1;
+		background: $white-1;
+		padding: var(--large-gap) var(--content-side-padding) calc(var(--larger-gap) * 1.5);
+	}
+}
+
+.popup {
+	background: white;
+	padding: var(--medium-gap) var(--content-side-padding) var(--larger-gap);
+	outline: 1px solid $grey-2;
+	border-radius: 1px;
+	text-align: center;
+	box-shadow: 0 0 0.7vw 0.1vw rgb(0, 0, 0, 0.1);
+}
+
+.hidden {
+	display: none;
+}

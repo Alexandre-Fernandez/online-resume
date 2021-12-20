@@ -1,7 +1,8 @@
-import {useRef, useEffect, useState} from "react"
+import {useRef} from "react"
 import withCaptcha from "../../hoc/withCaptcha"
 import useProtectedToggle from "../../hooks/useProtectedToggle"
 import useClickOutside from "../../hooks/useClickOutside"
+import InfoBox from "../InfoBox"
 
 interface ProtectedInfoIconProps {
 	children: any,
@@ -30,7 +31,7 @@ const ProtectedInfoIconProps : React.FC<ProtectedInfoIconProps> = ({
 		className="info_icon__icon"
 		onClick={handleIconClick}
 		/>{ isOpen && 
-		<div className="info_icon__info-box">{children}</div>
+		<InfoBox>{children}</InfoBox>
 	}</div>
 }
 

@@ -24,7 +24,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "lib/helpers.tss", "hoc/withCaptchatsx"  ],
+, "lib/helpers.tss", "hoc/withCaptchatsx", "next-i18next.config.js"  ],
   "exclude": [
     "node_modules"
   ]

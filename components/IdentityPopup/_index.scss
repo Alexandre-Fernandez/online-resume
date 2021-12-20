@@ -2,11 +2,11 @@
 
 .identity-popup {
 	&__heading {
-		font-size: 3vmax;
+		font-size: var(--font-size-h2-plus);
 	}
 
 	&__description {
-		margin-top: 0.6vmax;
-		font-size: 1.15vmax;
+		margin-top: var(--font-size-normal);
+		font-size: var(--font-size-h3);
 	}
 }

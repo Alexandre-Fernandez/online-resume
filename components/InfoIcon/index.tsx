@@ -1,5 +1,6 @@
 import {useRef, useState} from "react"
 import useClickOutside from "../../hooks/useClickOutside"
+import InfoBox from "../InfoBox"
 
 interface InfoIconProps {
 	src: string,
@@ -22,7 +23,7 @@ const InfoIcon : React.FC<InfoIconProps> = ({
 		className="info_icon__icon"
 		onClick={handleIconClick}
 		/>{ isOpen && 
-		<div className="info_icon__info-box">{children}</div>
+		<InfoBox>{children}</InfoBox>
 	}</div>
 
 }

@@ -1,7 +1,7 @@
 @use "../../styles/abstracts" as *;
 
 .identity-test {
-	--local-size: 3.5vmax;
+	--local-size: calc(var(--font-size-h2) * 2);
 	font-family: "Poppins";
 	display: flex;
 	flex-direction: column;
@@ -9,7 +9,7 @@
 	justify-content: center;
 	font-size: calc(var(--local-size) * 1.2);
 	row-gap: calc(var(--local-size) * 0.5);
-	margin-top: 1.3vmax;
+	margin-top: var(--medium-gap);
 
 	&__challenge {
 		display: flex;
@@ -26,7 +26,7 @@
 .challenge-answers {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 1vmax;
+	gap: calc(var(--small-gap) * 2);
 
 	&__answer-btn {
 		height: calc(var(--local-size) * 1.75);

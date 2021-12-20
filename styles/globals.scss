@@ -1,67 +1,11 @@
-@use "./base" as *;
 @use "./abstracts" as *;
+@use "./base" as *;
 @use "../components" as *;
+@use "./queries" as *;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-:root {
-	--content-width: 80vw;
-	--content-padding: 0 2vw;
-	--sidebar-width: 30%;
-}
 
-
-body {
-	color: $dark-blue-1;
-	background-color: $dark-blue-2;
-	padding-top: 5vh;
-	font-family: "Montserrat";
-	font-size: 0.84vw; // 0.84vmax
-}
-
-h1, h2, h3, label, .subheading {
-	font-family: "Poppins";
-}
-
-h2 {
-	font-size: 1.75vw;
-	line-height: 2vw;
-}
-
-h3, label {
-	font-size: 1.1vw;
-	line-height: 1.75vw;
-	font-weight: 700;
-}
-
-header, 
-main, 
-footer {
-	width: var(--content-width);
-	margin: auto;
-}
-
-main {
-	display: flex;
-	justify-content: center;
-	
-	.main-content {
-		flex-grow: 1;
-		background: $white-1;
-		padding: var(--content-padding);
-		padding-top: 2.5vw;
-	}
-}
-
-.popup {
-	background: white;
-	padding: 1.5vmax 2vmax 3vmax;
-	outline: 1px solid $grey-2;
-	border-radius: 1px;
-	text-align: center;
-}
-
-.hidden {
-	display: none;
-}
+// Poppins 700 400 600
+// Montserat 500

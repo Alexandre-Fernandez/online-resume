@@ -1,7 +1,7 @@
 @use "../../styles/abstracts" as *;
 
 .skill-tag {
-	--btn-side-padding: 0.15vw;
+	--btn-side-padding: calc(var(--small-gap) * 0.3);
 	border: none;
 	background: none;
 	color: $grey-2;
@@ -13,12 +13,12 @@
 		background: $dark-blue-1;
 		color: $white-1;
 
-		&:hover {
+		&.desktop:hover {
 			background: $grey-2 !important;
 		}
 	}
 
-	&:hover {
+	&.desktop:hover {
 		background: $grey-1;
 	}
 }

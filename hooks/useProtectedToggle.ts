@@ -11,9 +11,9 @@ const useProtectedToggle = () : [boolean, () => void, () => void]=> {
 	const [identity] = useContext(IdentityContext)
 	const [state, setState] = useState(ProtectedToggleState.OFF)
 
-	const turnOn = () => {
+	const turnOn = () => { // turns on or off depending on captcha outcome, see useEffect
 		if(identity === Identity.HUMAN) return setState(ProtectedToggleState.ON)
-		setState(ProtectedToggleState.WAITING)
+		setState(ProtectedToggleState.WAITING) 
 	}
 
 	const turnOff = () => {

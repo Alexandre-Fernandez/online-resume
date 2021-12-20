@@ -3,7 +3,7 @@
 .sidebar {
 	max-width: var(--sidebar-width);
 	min-width: var(--sidebar-width);
-	padding: var(--content-padding);
+	padding: 0 var(--content-side-padding);
 	color: $white-1;
 	background: $dark-blue-1;
 }

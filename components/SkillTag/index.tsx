@@ -1,11 +1,13 @@
 import {useContext, useEffect, useState} from "react"
 import {SkillFilterContext, Skills} from "../../context/SkillFilterContext"
+import {MobileContext} from "../../context/MobileContext"
 
 interface SkillTagProps {
 	name: Skills
 }
 
 const SkillTag: React.FC<SkillTagProps> = ({name}) => {
+	const isMobile = useContext(MobileContext)
 	const [skillFilter, setSkillFilter] = useContext(SkillFilterContext)
 	const [isToggled, setIsToggled] = useState(false)
 
@@ -24,7 +26,7 @@ const SkillTag: React.FC<SkillTagProps> = ({name}) => {
 	}
 
 	return <button 
-		className={`skill-tag${isToggled ? " skill-tag--active" : ""}`}
+		className={`skill-tag${isToggled ? " skill-tag--active" : ""}${!isMobile ? " desktop" : ""}`}
 		onClick={handleClick}
 	>
 		{name}

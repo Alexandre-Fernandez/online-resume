@@ -1,21 +1,22 @@
 import InfoIcon from "../InfoIcon"
 import ProtectedInfoIcon from "../InfoIcon/ProtectedInfoIcon"
 
+const phoneNumber = "+33 (0) 6 19 67 05 44"
+const emailAddress = "a.fernandez.martinez@outlook.com"
 const linkedin = "https://www.linkedin.com/in/alexandre--fernandez/"
 const github = "https://github.com/Alexandre-Fernandez"
-
 
 const Socials : React.FC = () => {
 	return <div className="socials">
 		<ul className="socials__list">
 			<li className="socials__item">
 				<ProtectedInfoIcon src="/phone.svg" alt="Phone">
-					<a href="tel:0033619670544">+33 (0) 6 19 67 05 44</a>
+					<a href="tel:0033619670544">{phoneNumber}</a>
 				</ProtectedInfoIcon>
 			</li>
 			<li className="socials__item">
 				<ProtectedInfoIcon src="/email.svg" alt="Email">
-					<a href="mailto:a.fernandez.martinez@outlook.com">a.fernandez.martinez@outlook.com</a>
+					<a href="mailto:a.fernandez.martinez@outlook.com">{emailAddress}</a>
 				</ProtectedInfoIcon>
 			</li>
 			<li className="socials__item">

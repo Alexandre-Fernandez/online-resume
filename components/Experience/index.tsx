@@ -6,6 +6,7 @@ import SkillTag from "../SkillTag"
 interface ExperienceProps {
 	title: string
 	duration: string,
+	qualification?: string,
 	subtitle?: string,
 	link?: string,
 	tags?: Skills[],
@@ -13,7 +14,7 @@ interface ExperienceProps {
 }
 
 const Experience: React.FC<ExperienceProps> = ({
-	children, title, subtitle, duration, link, tags = [], createList = true
+	children, title, subtitle, duration, qualification, link, tags = [], createList = true
 }) => {
 	const [skillTags, setSkillTags] = useState<Skills[]>([])
 	const isActive = useSkillFilter(SkillFilterContext, skillTags)
@@ -27,7 +28,7 @@ const Experience: React.FC<ExperienceProps> = ({
 		setSkillTags([...temp])
 	}, []);
 
-	const titleH3 = <h3 className="experience__title">{title}</h3>
+	const titleH3 = <h3 className="experience__title">{title}{qualification ? <span>{" - " + qualification}</span> : ""}</h3>
 	const subtitleP = <p className="experience__subtitle">{subtitle}</p>
 	const durationP = <p className="experience__duration">{duration}</p>
 

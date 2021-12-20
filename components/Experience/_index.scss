@@ -2,8 +2,14 @@
 
 .experience {
 	text-align: left;
-	margin-bottom: 1.5vw;
+	margin-bottom: var(--medium-gap);
 	
+	h3 {
+		span { // qualification level
+			white-space: nowrap;
+		}
+	}
+
 	&__link:hover {
 		text-decoration: underline;
 	}
@@ -22,10 +28,7 @@
 		list-style-type: disc;
 
 		li {
-			margin: var(--content-padding);
-			margin-right: 0;
-			margin-bottom: 0.5vw;
-			margin-top: 0.5vw;
+			margin: var(--small-gap) 0 var(--small-gap) var(--content-side-padding);
 		}
 	}
 }

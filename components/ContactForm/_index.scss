@@ -1,0 +1,67 @@
+@use "../../styles/abstracts" as *;
+
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	
+	.input {
+		
+		color: $dark-blue-1;
+	}
+	.label {
+		margin-bottom: var(--small-gap);
+	}
+
+	strong { // email error message
+		color: $red-1;
+		margin-left: var(--font-size-normal);
+	}
+
+	&__input-container {
+		display: flex;
+		margin-bottom: var(--medium-gap);
+		align-items: center;
+	}
+
+	&__email-input {
+		align-self: center;
+		width: 40%;
+	}
+
+	&__message-input {
+		display: block;
+		width: 100%;
+		resize: vertical;
+		height: 20vh;
+	}
+
+	&__submit-input {
+		align-self: center !important;
+		background: none;
+		color: $dark-blue-1;
+		font-weight: 500;
+		font-size: var(--font-size-h3);
+		border: 1px solid $grey-2;
+		padding: var(--font-size-h3);
+		width: 20%;
+		border-radius: calc(var(--font-size-normal) * 0.25);
+
+		&:hover {
+			background: $grey-1;
+		}
+
+		&:active {
+			transform: scale(0.98);
+		}
+	}
+}
+
+.sent-email-message {
+	font-size: var(--font-size-h3);
+	text-align: center;
+
+	&-wrapper {
+		display: flex;
+		justify-content: center;
+	}
+}

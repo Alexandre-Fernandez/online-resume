@@ -1,48 +1,80 @@
-import {useState, useEffect, useContext} from "react"
-import {IdentityContext, Identity} from "../../context/IdentityContext"
+import {useState, useEffect, useRef} from "react"
 import {isEmailValid} from "../../lib/helpers"
-
+import withCaptcha from "../../hoc/withCaptcha"
+import useProtectedToggle from "../../hooks/useProtectedToggle"
+import {sendEmail} from "../../lib/email"
+import {useTranslation} from "next-i18next/"
 
 interface ContactFormProps {
+	startCaptcha?: () => void
 }
  
-const ContactForm: React.FC<ContactFormProps> = () => {
-	const [identity, setIdentity] = useContext(IdentityContext)
-	const [email, setEmail] = useState("")
+const ContactForm: React.FC<ContactFormProps> = ({startCaptcha}) => {
+	const [isActive, tryActivate] = useProtectedToggle()
+	const [[email, emailErr], setEmail] = useState<[string, boolean]>(["", false])
 	const [message, setMessage] = useState("")
-
-
-	useEffect(() => {
-		console.log(message)
-	}, [message]);
+	const [isEmailSent, setIsEmailSent] = useState(false)
+	const ref = useRef()
+	const {t} = useTranslation()
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		
-
-		console.log(e.target)
+		if(!isActive) {
+			startCaptcha()
+			return tryActivate()
+		}
+		if(!isEmailValid(email)) return setEmail([email, true])
+		if(message.length > 9) sendEmail(e.target as HTMLFormElement)
+		setIsEmailSent(true)
 	}
 
-	return <form className="contact-form" onSubmit={handleSubmit} noValidate>
-		<label className="contact-form__label" htmlFor="form-email">Votre E-mail</label>
-		<input 
-			className="contact-form__input" 
-			type="email" 
-			name="email" 
-			id="form-email"
-			value={email}
-			onChange={e => setEmail(e.target.value)}
-		/>
-		<label className="contact-form__label" htmlFor="form-message">Votre Message</label>
-		<textarea 
-			className="contact-form__textarea" 
-			name="message" 
-			id="form-message"
-			value={message}
-			onChange={e => setMessage(e.target.value)}
-		/>
-		<input className="contact-form__submit-btn" type="submit" value="Envoyer"/>
+	useEffect(() => { // resubmits after captcha
+		if(isActive && ref?.current) (ref.current as HTMLButtonElement).click()
+	}, [isActive]);
+
+	return isEmailSent 
+	? <div className="sent-email-message-wrapper"><strong className="sent-email-message">
+		{t("index:main__contact-thanks")}
+	</strong></div>
+	: <form className="contact-form" onSubmit={handleSubmit} noValidate>
+		<label className="contact-form__email-label label" htmlFor="form-email">{t("index:main__your-email")}</label>
+		<div className="contact-form__input-container">
+			<input 
+				className="contact-form__email-input input" 
+				type="email" 
+				name="email" 
+				id="form-email"
+				value={email}
+				onChange={e => setEmail([e.target.value, false])}
+			/>{
+			emailErr && <strong>{t("index:main__contact-email-error")}</strong>
+		}</div>
+		<label className="contact-form__message-label label" htmlFor="form-message">{t("index:main__your-message")}</label>
+		<div className="contact-form__input-container">
+			<textarea 
+				className="contact-form__message-input input" 
+				name="message" 
+				id="form-message"
+				value={message}
+				onChange={e => setMessage(e.target.value)}
+			/>
+		</div>
+		<input className="contact-form__submit-input" type="submit" value="Envoyer" ref={ref}/>
 	</form>
+	
 }
  
-export default ContactForm;
+export default withCaptcha(ContactForm);
+
+
+/* error:
+{
+  "status": 400,
+  "text": "The service ID is invalid To find this ID, visit https://dashboard.emailjs.com/admin"
+}
+OK:
+{
+  "status": 200,
+  "text": "OK"
+}
+*/

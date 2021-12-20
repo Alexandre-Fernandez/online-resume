@@ -1,0 +1,40 @@
+@use "../../styles/abstracts" as *;
+
+.info-box {
+	$borderColor: $grey-2;
+	$backgroundColor: $white-1;
+	position: absolute;
+	background: $backgroundColor;
+	top: calc(100% + 2rem);
+	left: 0;
+	min-width: max-content;
+	min-height: max-content;
+	text-align: left;
+	box-shadow: 0px 0px 0 2px $borderColor;
+	padding: var(--small-gap) var(--medium-gap);
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 1px;
+
+	&:before {
+		content: '';
+		position: absolute;
+		border: 1px solid $borderColor;
+		border-color: $borderColor transparent;
+		border-width: 0 13px 11px 13px;
+		top: -13px;
+		left: 3%;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		border: 1px solid;
+		border-color: $backgroundColor transparent;
+		border-width: 0 13px 12px 13px;
+		top: -12px;
+		left: 3%;
+	}
+}
