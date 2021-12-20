@@ -59,12 +59,14 @@ const ChallengeAnswers : React.FC<ChallengeAnswersProps> = ({parentClass, curren
 					<img 
 						className="challenge-answers__digit" 
 						src={`/digits/${digits[parseInt(answer.toString()[0])]}`}
+						alt="Digit"
 					/><img 
 						className="challenge-answers__digit" 
 						src={`/digits/${digits[parseInt(answer.toString()[1])]}`}
+						alt="Digit"
 					/>
 				</>
-				: <img className="challenge-answers__digit" src={`/digits/${digits[answer]}`}/>
+				: <img className="challenge-answers__digit" src={`/digits/${digits[answer]}`} alt="Digit"/>
 			}</button>)
 		}
 	</div>
@@ -88,9 +90,9 @@ const IdentityTest : React.FC<IdentityTestProps> = ({parentClass}) => {
 
 	return <div className={`${parentClass ? parentClass + "__identity-test " : ""}identity-test`}>
 		<div className="identity-test__challenge">
-			<img className="identity-test__digit" src={`/digits/${digits[challenge.a]}`}/>
+			<img className="identity-test__digit" src={`/digits/${digits[challenge.a]}`} alt="Digit"/>
 			<span> + </span>
-			<img className="identity-test__digit" src={`/digits/${digits[challenge.b]}`}/>
+			<img className="identity-test__digit" src={`/digits/${digits[challenge.b]}`} alt="Digit"/>
 			<span> = </span>
 		</div>
 		<ChallengeAnswers parentClass="identity-test" currentChallenge={challenge} onClick={handleClick}/>

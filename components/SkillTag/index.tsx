@@ -14,7 +14,7 @@ const SkillTag: React.FC<SkillTagProps> = ({name}) => {
 	useEffect(() => {
 		if(skillFilter.has(name)) return setIsToggled(true)
 		setIsToggled(false)
-	}, [skillFilter]);
+	}, [skillFilter, name]);
 
 	const handleClick = () => {
 		if(skillFilter.has(name)) {

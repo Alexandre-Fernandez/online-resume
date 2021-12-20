@@ -7,7 +7,7 @@
 	left: 2vw;
 	width: var(--local-size);
 	height: var(--local-size);
-	z-index: 1000;
+	z-index: 5;
 	background: transparent;
 	box-shadow: inset 0 0 0 calc(var(--large-gap) * 0.05) $dark-blue-1;
 	border: none;

@@ -6,7 +6,7 @@ interface SidebarToggleButtonProps {
 
 const SidebarToggleButton: React.FC<SidebarToggleButtonProps> = ({onClick}) => {
 	return <button className="sidebar-toggle-btn" onClick={onClick}>
-		<img src="/filter.svg"/>
+		<img src="/filter.svg" alt="Filter"/>
 	</button>
 }
  
