@@ -53,7 +53,7 @@ const Index : React.FC = () => {
 						tags={[Skills.JAVASCRIPT, Skills.TYPESCRIPT, Skills.NODEJS, Skills.NEXT, Skills.EJS, Skills.WORDPRESS]}
 					/><SkillCategory 
 						name="Back-end" 
-						tags={[Skills.EXPRESS, Skills.MYSQL, Skills.MONGODB, Skills.MONGOOSE]}
+						tags={[Skills.EXPRESS, Skills.MYSQL, Skills.MONGODB, Skills.MONGOOSE, Skills.DOCKER, Skills.NGINX]}
 					/><SkillCategory 
 						name="Front-end" 
 						tags={[Skills.REACT, Skills.REACT_NATIVE, Skills.REDUX, Skills.WEBPACK, Skills.JQUERY, Skills.HTML, Skills.CSS, Skills.SASS]}
@@ -139,7 +139,8 @@ const Index : React.FC = () => {
 						title={t("index:main__online-resume")}
 						subtitle={t("index:main__online-resume-subtitle")}
 						duration="2021"
-						tags={[Skills.NEXT, Skills.REACT, Skills.TYPESCRIPT, Skills.SASS, Skills.NODEJS, Skills.ILLUSTRATOR, Skills.HTML, Skills.FRENCH, Skills.ENGLISH, Skills.SPANISH, Skills.BEM, Skills.UIUX, Skills.XD, Skills.RESPONSIVE]}
+						link="https://alexandrefernandez.me"
+						tags={[Skills.NEXT, Skills.REACT, Skills.TYPESCRIPT, Skills.SASS, Skills.NODEJS, Skills.ILLUSTRATOR, Skills.HTML, Skills.FRENCH, Skills.ENGLISH, Skills.SPANISH, Skills.BEM, Skills.UIUX, Skills.XD, Skills.RESPONSIVE, Skills.DOCKER, Skills.NGINX]}
 					/><Experience 
 						title="VWMS Solutions"
 						subtitle={t("index:main__vwms-subtitle")}

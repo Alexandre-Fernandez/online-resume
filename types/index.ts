@@ -44,6 +44,8 @@ export enum Skills {
 	MYSQL = "MySQL",
 	MONGODB = "MongoDB",
 	MONGOOSE = "Mongoose",
+	DOCKER = "Docker",
+	NGINX = "NGINX",
 	// SOFTWARE
 	PHOTOSHOP = "Adobe Photoshop",
 	ILLUSTRATOR = "Adobe Illustrator",

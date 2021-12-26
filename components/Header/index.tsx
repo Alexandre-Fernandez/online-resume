@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Socials from "../Socials"
 import {useTranslation} from "next-i18next/"
 
@@ -8,13 +7,12 @@ const Header : React.FC = () => {
 	return <header className="header">
 		<div className="header__profile">
 			<div className="header__picture-wrapper">
-				<Image 
+				<img 
 					className="header__picture" 
-					width="3555"
-					height="3555"
+					src="/alex600.jpg"
+					srcSet="/alex200.jpg 200w, /alex400.jpg 400w, /alex600.jpg 600w, alex1200.jpg 1200w"
+					sizes="30vw"
 					alt="Resume picture"
-					src="/alex.jpg"
-					priority={true}
 				/>
 			</div>
 			<Socials/>
