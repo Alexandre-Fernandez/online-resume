@@ -26,7 +26,7 @@ const Experience: React.FC<ExperienceProps> = ({
 			if(child.props.tags) child.props.tags.forEach((tag: Skills) => temp.add(tag))
 		})
 		setSkillTags([...temp])
-	}, [children, tags]);
+	}, [children]);
 
 	const titleH3 = <h3 className="experience__title">{title}{qualification ? <span>{" - " + qualification}</span> : ""}</h3>
 	const subtitleP = <p className="experience__subtitle">{subtitle}</p>
