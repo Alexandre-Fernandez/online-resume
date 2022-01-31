@@ -43,7 +43,8 @@ export enum Skills {
 	EXPRESS = "Express.js",
 	MYSQL = "MySQL",
 	MONGODB = "MongoDB",
-	MONGOOSE = "Mongoose",
+	PHP = "PHP",
+	SYMFONY = "Symfony",
 	DOCKER = "Docker",
 	NGINX = "NGINX",
 	// SOFTWARE

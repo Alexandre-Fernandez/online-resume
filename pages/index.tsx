@@ -53,7 +53,7 @@ const Index : React.FC = () => {
 						tags={[Skills.JAVASCRIPT, Skills.TYPESCRIPT, Skills.NODEJS, Skills.NEXT, Skills.EJS, Skills.WORDPRESS]}
 					/><SkillCategory 
 						name="Back-end" 
-						tags={[Skills.EXPRESS, Skills.MYSQL, Skills.MONGODB, Skills.MONGOOSE, Skills.DOCKER, Skills.NGINX]}
+						tags={[Skills.EXPRESS, Skills.PHP, Skills.SYMFONY, Skills.MYSQL, Skills.MONGODB, Skills.DOCKER, Skills.NGINX]}
 					/><SkillCategory 
 						name="Front-end" 
 						tags={[Skills.REACT, Skills.REACT_NATIVE, Skills.REDUX, Skills.WEBPACK, Skills.JQUERY, Skills.HTML, Skills.CSS, Skills.SASS]}
@@ -88,7 +88,7 @@ const Index : React.FC = () => {
 					</Experience>
 					<Experience 
 						title={t("index:main__call-center-supervisor")}
-						subtitle="Business Support Services – B2S" 
+						subtitle="Business Support Services - B2S" 
 						duration="2014-2015"
 						link="https://www.linkedin.com/company/b2s/"
 					>
@@ -117,7 +117,7 @@ const Index : React.FC = () => {
 						subtitle="3W Academy" 
 						duration="2021-2022"
 						link="https://www.francecompetences.fr/recherche/rncp/34393/"
-						tags={[Skills.REACT, Skills.REACT_NATIVE, Skills.EXPRESS, Skills.API_REST, Skills.HTML, Skills.CSS, Skills.JAVASCRIPT, Skills.MYSQL, Skills.REDUX, Skills.JQUERY, Skills.NODEJS, Skills.MONGODB, Skills.MONGOOSE, Skills.EJS, Skills.RESPONSIVE, Skills.GIT, Skills.OOP, Skills.MVC]}
+						tags={[Skills.REACT, Skills.REACT_NATIVE, Skills.EXPRESS, Skills.API_REST, Skills.HTML, Skills.CSS, Skills.JAVASCRIPT, Skills.MYSQL, Skills.REDUX, Skills.JQUERY, Skills.NODEJS, Skills.MONGODB, Skills.EJS, Skills.RESPONSIVE, Skills.GIT, Skills.OOP, Skills.MVC]}
 					>
 					</Experience><Experience 
 						title={t("index:main__self-study")}
