@@ -1,4 +1,4 @@
-import {useState, useEffect, Children} from "react"
+import {useState, useEffect, Children, useCallback} from "react"
 import {SkillFilterContext, Skills} from "../../context/SkillFilterContext"
 import useSkillFilter from "../../hooks/useSkillFilter"
 import SkillTag from "../SkillTag"
@@ -19,14 +19,21 @@ const Experience: React.FC<ExperienceProps> = ({
 	const [skillTags, setSkillTags] = useState<Skills[]>([])
 	const isActive = useSkillFilter(SkillFilterContext, skillTags)
 
+	// isSameTags was made to be able to use tags as a dependency in the useEffect (avoiding eslint error and loop)
+	const isSameTags = useCallback((tags: Set<Skills>) => { 
+		if(skillTags.length !== tags.size) return false
+		skillTags.forEach(tag => { if(!tags.has(tag)) return false })
+		return true
+	}, [skillTags, tags])
+
 	useEffect(() => {
-		if(tags) return setSkillTags(tags)
-		const temp = new Set<Skills>()
+		if(tags.length > 0) return setSkillTags(tags)
+		const temp = new Set<Skills>() // this doesn't have own tags => inherits children tags:
 		Children.forEach(children, (child: React.ReactElement<any>) => {
 			if(child.props.tags) child.props.tags.forEach((tag: Skills) => temp.add(tag))
 		})
-		setSkillTags([...temp])
-	}, [children]);
+		if(!isSameTags(temp)) setSkillTags([...temp])
+	}, [children, tags]);
 
 	const titleH3 = <h3 className="experience__title">{title}{qualification ? <span>{" - " + qualification}</span> : ""}</h3>
 	const subtitleP = <p className="experience__subtitle">{subtitle}</p>
